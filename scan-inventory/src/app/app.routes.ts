@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
 import { ProductComponent } from './products/product.component';
-import { ProductDetailComponent } from './products/product-detail.component';
-import { AddProductComponent } from './products/add-product.component'; 
+import { ProductDetailComponent } from './products/detail.component';
+import { AddProductComponent } from './products/add.component'; 
 
 export const routes: Routes = [
   { path: '', redirectTo: '/products', pathMatch: 'full' },
   { path: 'products', component: ProductComponent },
   { path: 'product/:id', component: ProductDetailComponent },
-  { path: 'add-product', component: AddProductComponent }, 
+  { path: 'add', component: AddProductComponent }, 
 ];

@@ -8,13 +8,11 @@ import { Product } from './product';
 export class ProductService {
   private apiUrl = 'https://jsonplaceholder.typicode.com/posts';
   
-  // Lokalny "magazyn" danych w pamięci aplikacji
   private productsSource = new BehaviorSubject<Product[]>([]);
   products$ = this.productsSource.asObservable();
 
   constructor(private http: HttpClient) {}
 
-  // Pobierz dane z API tylko jeśli magazyn jest pusty
   loadProducts(): void {
     if (this.productsSource.value.length === 0) {
       this.http.get<any[]>(this.apiUrl).pipe(
@@ -28,17 +26,14 @@ export class ProductService {
     }
   }
 
-  // Symulacja zapisu: wyślij POST, a potem dodaj do lokalnej listy
   addProduct(product: Partial<Product>): Observable<Product> {
     return this.http.post<Product>(this.apiUrl, product).pipe(
       tap(newProduct => {
-        // Ponieważ API nie nadaje unikalnego ID dla naszych potrzeb, generujemy je sami
         const productWithId = { 
           ...newProduct, 
           id: Math.floor(Math.random() * 1000) + 100 
         } as Product;
         
-        // Aktualizujemy lokalną listę (nowy produkt na górę)
         const currentProducts = this.productsSource.value;
         this.productsSource.next([productWithId, ...currentProducts]);
       })

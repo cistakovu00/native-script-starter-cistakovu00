@@ -12,19 +12,17 @@ import { Product } from './product';
 })
 export class ProductComponent implements OnInit {
   productService = inject(ProductService);
-  private cdr = inject(ChangeDetectorRef); // Wymagane dla ChangeDetectionStrategy.OnPush
+  private cdr = inject(ChangeDetectorRef);
   products: Product[] = [];
 
   ngOnInit(): void {
-    // Zmień wywołanie z getProducts() na products$
     this.productService.products$.subscribe(data => {
       this.products = data;
-      this.cdr.markForCheck(); // Ważne przy OnPush!
+      this.cdr.markForCheck();
     });
 
-    // Wywołaj inicjalizację danych, jeśli Twój serwis tego wymaga
     if (this.productService.loadProducts) {
-       this.productService.loadProducts();
+      this.productService.loadProducts();
     }
   }
 }

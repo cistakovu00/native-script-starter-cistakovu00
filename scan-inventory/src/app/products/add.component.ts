@@ -10,8 +10,8 @@ import { BarcodeScanner } from 'nativescript-barcodescanner';
 import { ProductService } from './product.service';
 
 @Component({
-  selector: 'ns-add-product',
-  templateUrl: './add-product.component.html',
+  selector: 'ns-add',
+  templateUrl: './add.component.html',
   schemas: [NO_ERRORS_SCHEMA],
   imports: [
     NativeScriptCommonModule,
@@ -37,7 +37,7 @@ export class AddProductComponent {
       message: "Place the barcode inside the scan area",
       showFlipCameraButton: true,
     }).then((result) => {
-      this.code = result.text; // Kod ze skanera ląduje w polu formularza!
+      this.code = result.text; 
     }).catch(err => console.error("Scan error: ", err));
   }
 

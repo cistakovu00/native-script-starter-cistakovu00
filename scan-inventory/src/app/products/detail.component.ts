@@ -13,8 +13,8 @@ import { Product } from './product';
 import { ProductService } from './product.service';
 
 @Component({
-  selector: 'ns-product-detail',
-  templateUrl: './product-detail.component.html',
+  selector: 'ns-detail',
+  templateUrl: './detail.component.html',
   imports: [NativeScriptCommonModule],
   schemas: [NO_ERRORS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,7 +30,6 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     const id = Number(this.route.snapshot.params['id']);
 
-    // tymczasowo – pobranie produktu po ID
     const product = this.productService.getProductById(id);
     this.product.set(product);
 
