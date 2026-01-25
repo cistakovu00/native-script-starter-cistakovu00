@@ -5,24 +5,71 @@
 ## Cel
 Zbuduj podstawową aplikację w **NativeScript używając framework Angular**, która używa **natywnej funkcji** oraz **komunikuje się z API**, z **3–4 widokami**.
 
-## Zakres i wymagania funkcjonalne
-- **Natywna funkcja (min. 1):** wybierz i uzasadnij (np. aparat/kamera – skan/zdjęcie, pliki, geolokalizacja, latarka, wibracje).
-- **API (min. 1 endpoint):** pobranie listy elementów lub zapis nowego.
-- **Widoki (3–4):**
-  1. **Lista produktów** (nazwa, kod, mini-status).
-  2. **Szczegóły produktu** (opis, zdjęcie/skan, akcje: usuń/edytuj).
-  3. **Dodaj produkt** (formularz + akcja natywna, np. „zeskanuj/zdjęcie”).
-  4. *(Opcjonalnie)* **Ustawienia** (np. preferencje, tryb offline).
-- **Walidacja:** minimalna w formularzu (np. wymagane pola).
+## Opis projektu
+Scan Inventory to mobilna aplikacja stworzona z wykorzystaniem NativeScript oraz frameworka Angular.  
+Aplikacja umożliwia zarządzanie prostą listą produktów magazynowych, w tym przeglądanie listy produktów, wyświetlanie szczegółów wybranego produktu oraz dodawanie nowych pozycji.
 
-## Testowanie lokalne (w trakcie developmentu)
-- Uruchom na **urządzeniu/emulatorze**.
-- Pokaż: dodanie produktu z użyciem **natywnej funkcji** (np. zdjęcie/skan), pojawienie się na liście.
-- Pokaż komunikację z **API** (pobranie/zapis) i zachowanie przy błędach/uprawnieniach.
+Projekt został wykonany w ramach zadania zaliczeniowego i ma na celu zaprezentowanie:
+- wykorzystania natywnych funkcji urządzenia mobilnego,
+- komunikacji z zewnętrznym API REST,
+- nawigacji pomiędzy wieloma widokami aplikacji.
 
-## Definition of Done (DoD)
-- [ ] 3–4 widoki + nawigacja.
-- [ ] Co najmniej 1 **natywna funkcja**.
-- [ ] Integracja z **API** (GET/POST).
-- [ ] Walidacja formularza + podstawowa obsługa błędów.
-- [ ] Aktualizacja `README.md`, zrzuty ekranów, min. 3 commity.
+---
+
+## Wykorzystane technologie
+- NativeScript
+- Angular
+- TypeScript
+- Android SDK
+- NativeScript Camera Plugin
+- HttpClient (komunikacja z API REST)
+
+---
+
+## Widoki aplikacji
+Aplikacja składa się z następujących widoków:
+1. Lista produktów
+   - wyświetlenie listy produktów,
+   - prezentacja nazwy oraz kodu produktu.
+2. Szczegóły produktu
+   - wyświetlenie szczegółowych informacji o produkcie,
+   - możliwość powrotu do listy produktów.
+3. Dodaj produkt
+   - formularz umożliwiający dodanie nowego produktu,
+   - wykorzystanie natywnej funkcji aparatu.
+
+---
+
+## Funkcja natywna
+W aplikacji wykorzystano aparat urządzenia mobilnego do wykonania zdjęcia produktu.  
+Zastosowanie tej funkcji demonstruje integrację z natywnymi możliwościami systemu Android oraz obsługę uprawnień.
+
+---
+
+## Integracja z API
+Aplikacja komunikuje się z zewnętrznym API REST przy użyciu protokołu HTTP:
+- GET – pobieranie listy produktów,
+- POST – dodawanie nowego produktu,
+- DELETE – usuwanie produktu.
+
+Podczas developmentu użyto przykładowego (mockowego) API.
+
+---
+
+## Walidacja formularzy
+Zaimplementowano podstawową walidację formularzy:
+- pola wymagane (nazwa produktu, kod produktu),
+- prosta obsługa błędów.
+
+---
+
+## Zrzuty ekranu
+![1](image.png)
+![2](image-1.png)
+
+---
+
+## Uruchomienie projektu
+```bash
+npm install
+ns run android
