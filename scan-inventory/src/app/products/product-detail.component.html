@@ -1,0 +1,37 @@
+<ActionBar title="Details">
+  @if (isAndroid) {
+  <StackLayout orientation="horizontal" horizontalAlignment="left">
+    <Label
+      text="< Back"
+      color="#1976d2"
+      (tap)="goBack()"
+      style="font-size: 18; margin-left: 4"
+    ></Label>
+    <Label
+      text="Details"
+      color="#333"
+      style="font-size: 20; font-weight: 600; margin-left: 30"
+    ></Label>
+  </StackLayout>
+  }
+</ActionBar>
+
+<FlexboxLayout flexDirection="column">
+  <!-- ID i nazwa produktu -->
+  <FlexboxLayout class="m-4">
+    <Label class="text-3xl text-gray-400" [text]="product()?.id + '. '"></Label>
+    <Label class="text-3xl" [text]="product()?.name"></Label>
+  </FlexboxLayout>
+
+  <!-- Kod produktu -->
+  <StackLayout class="text-xl m-2 ml-6">
+    <Label class="mb-2" fontWeight="700" text="Code:"></Label>
+    <Label textWrap="true" [text]="product()?.code"></Label>
+  </StackLayout>
+
+  <!-- Opis produktu -->
+  <StackLayout class="text-xl m-2 ml-6">
+    <Label class="mb-2" fontWeight="700" text="Description:"></Label>
+    <Label textWrap="true" [text]="product()?.description"></Label>
+  </StackLayout>
+</FlexboxLayout>
